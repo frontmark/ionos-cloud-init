@@ -40,7 +40,7 @@ and unattended upgrades and log rotation will have been configured (note that `f
 > KeyError: 'properties'
 > ```
 >
-> You will have to find out what the new `id` is (to be placed in the `.de_fra.json` config file).
+> You will have to find out what the new image `id` is (to be placed in the `.de_fra.json` config file).
 >
 > The API call is described here: [https://api.ionos.com/docs/cloud/v6/#tag/Images/operation/imagesGet](https://api.ionos.com/docs/cloud/v6/#tag/Images/operation/imagesGet)
 
