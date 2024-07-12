@@ -40,5 +40,6 @@ jobs:
           VALIDATE_CPP: false
           VALIDATE_NATURAL_LANGUAGE: false
           VALIDATE_CHECKOV: false
+          FILTER_REGEX_EXCLUDE: (datacenters/foobar/cloud-configs/.*.yaml)
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

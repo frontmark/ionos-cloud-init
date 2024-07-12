@@ -1,0 +1,72 @@
+{
+    "server": {
+        "properties": {
+            "name": "foo",
+            "cores": 2,
+            "ram": 4096,
+            "availabilityZone": "AUTO",
+            "cpuFamily": "INTEL_SKYLAKE",
+            "type": "ENTERPRISE"
+        },
+        "entities": {
+            "volumes": {
+                "items": []
+            },
+            "nics": {
+                "items": [
+                    {
+                        "properties": {
+                            "name": "foo-wan",
+                            "ips": null,
+                            "dhcp": true,
+                            "lan": 1,
+                            "firewallActive": true,
+                            "firewallType": "INGRESS"
+                        },
+                        "firewallrules": [
+                            {
+                                "properties" : {
+                                    "name" : "from-IP-to-SSH",
+                                    "protocol" : "TCP",
+                                    "sourceMac" : null,
+                                    "sourceIp" : "{{ source-ip }}",
+                                    "targetIp" : null,
+                                    "icmpCode" : null,
+                                    "icmpType" : null,
+                                    "portRangeStart" : 22,
+                                    "portRangeEnd" : 22,
+                                    "type" : "INGRESS"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "volumes" :
+        [
+            {
+                "properties":{
+                    "name": "foo-ssd",
+                    "type": "SSD",
+                    "size": 100,
+                    "availabilityZone": "AUTO",
+                    "bus": "VIRTIO",
+                    "licenceType": "OTHER"
+                }
+            },
+            {
+                "properties": {
+                    "name": "foo-boot",
+                    "type": "HDD",
+                    "size": 80,
+                    "availabilityZone": "AUTO",
+                    "bus": "VIRTIO",
+                    "image": "{{ ubuntu-20-04-lts-server-cloud-init-image-id }}",
+                    "imagePassword": null
+                }
+            }
+        ],
+    "nics": []
+}

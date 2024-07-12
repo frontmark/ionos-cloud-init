@@ -1,0 +1,18 @@
+#cloud-config
+hostname: bar
+users:
+  - name: ladmin
+    groups: [ sudo ]
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: $6$rounds=4096$g37.EnyPT$.JTrJqJM1dSAgeJleWdLlhdCXmzMhU0RMUV.LF3/vxWdKwMOEcu/04M2APvYHuU7Y6n/7.D1figN9VsPnUsqm0
+    ssh_authorized_keys:
+{{ favmd.keys }}
+runcmd:
+{{ unattended-upgrades }}
+  - chown -R ladmin:ladmin /home/ladmin
+write_files:
+{{ journalctl-rotate-3months }}
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true

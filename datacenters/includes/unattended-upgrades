@@ -1,0 +1,4 @@
+  - sed -E -i 's/(APT::Periodic::Download-Upgradeable-Packages )"0";/\1"1";/' /etc/apt/apt.conf.d/10periodic
+  - sed -E -i 's/(APT::Periodic::AutocleanInterval )"0";/\1"7";/' /etc/apt/apt.conf.d/10periodic
+  - sed -E -i 's/\/\/(\s*"\$\{distro_id\}:\$\{distro_codename\}-updates";)/\1/' /etc/apt/apt.conf.d/50unattended-upgrades
+  - sed -E -i 's/\/\/(Unattended-Upgrade::Remove-Unused-Dependencies )"false";/\1"true";/' /etc/apt/apt.conf.d/50unattended-upgrades

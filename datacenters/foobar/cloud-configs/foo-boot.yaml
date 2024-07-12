@@ -1,0 +1,32 @@
+#cloud-config
+hostname: foo
+users:
+  - name: ladmin
+    groups: [ sudo ]
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: $6$rounds=4096$g37.EnyPT$.JTrJqJM1dSAgeJleWdLlhdCXmzMhU0RMUV.LF3/vxWdKwMOEcu/04M2APvYHuU7Y6n/7.D1figN9VsPnUsqm0
+    ssh_authorized_keys:
+{{ favmd.keys }}
+disk_setup:
+  /dev/vda:
+    table_type: gpt
+    layout: true
+    overwrite: true
+fs_setup:
+  - device: /dev/vda
+    partition: 1
+    label: data
+    filesystem: 'xfs'
+    cmd: mkfs -t %(filesystem)s -L %(label)s %(device)s
+mounts:
+  - [ LABEL=data, /mnt/data ]
+mount_default_fields: [ None, None, auto, "defaults,nofail", "0", "2" ]
+runcmd:
+{{ unattended-upgrades }}
+  - chown -R ladmin:ladmin /home/ladmin
+write_files:
+{{ journalctl-rotate }}
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
