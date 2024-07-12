@@ -26,6 +26,24 @@ Both servers do have a network interface card (NIC), which is connected to the i
 The YAML files (a.k.a. the `#cloud-configs`) will initialize both servers entirely, so that in the end the user `favmd` can log in as the sudo user `ladmin` via SSH with a key, the sudo `passwd` will be "password" (created with `mkpasswd` as described in the [Cloud config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)),
 and unattended upgrades and log rotation will have been configured (note that `foo` and `bar` have different log rotation vacuum times, but do share the exact same configuration for unattended upgrades).
 
+> [!NOTE]
+> If IONOS changed the Ubuntu image `id` defined in `.de_fra.json`, you will see an error message similar to:
+>
+> ```text
+> +++ Attaching volumes.<name>-boot to <name>.
+> ... Server BUSY...
+> Traceback (most recent call last):
+>   [...]
+>   File "/home/snake/./cloud-init.py", line 337, in attach_single
+>     if type == "volumes" and component["properties"]["name"].endswith("-boot"):
+>                              ~~~~~~~~~^^^^^^^^^^^^^^
+> KeyError: 'properties'
+> ```
+>
+> You will have to find out what the new image `id` is (to be placed in the `.de_fra.json` config file).
+>
+> The API call is described here: [https://api.ionos.com/docs/cloud/v6/#tag/Images/operation/imagesGet](https://api.ionos.com/docs/cloud/v6/#tag/Images/operation/imagesGet)
+
 **Table of Contents:**
 
 - [Build the Docker image](#build-the-docker-image)
