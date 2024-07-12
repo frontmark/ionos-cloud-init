@@ -3,7 +3,6 @@
         "properties": {
             "name": "bar",
             "availabilityZone": "AUTO",
-            "cpuFamily": "INTEL_SKYLAKE",
             "type": "CUBE",
             "templateUuid": "{{ cubes-m-template-id }}"
         },
