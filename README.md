@@ -41,8 +41,7 @@ and unattended upgrades and log rotation will have been configured (note that `f
 > ```
 >
 > `cloud-init.py` will then use the API token instead of asking for a username and password.
-
-> [!NOTE]
+>
 > If IONOS changed the Ubuntu image `id` defined in `.de_fra.json`, you will see an error message similar to:
 >
 > ```text
