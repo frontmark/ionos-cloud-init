@@ -27,7 +27,7 @@ The YAML files (a.k.a. the `#cloud-configs`) will initialize both servers entire
 and unattended upgrades and log rotation will have been configured (note that `foo` and `bar` have different log rotation vacuum times, but do share the exact same configuration for unattended upgrades).
 
 > [!NOTE]
-> In case IONOS changed the Ubuntu image defined in `.de_fra.json`, you will likely see an error message similar to:
+> If IONOS changed the Ubuntu image `id` defined in `.de_fra.json`, you will see an error message similar to:
 >
 > ```text
 > +++ Attaching volumes.<name>-boot to <name>.
@@ -40,7 +40,7 @@ and unattended upgrades and log rotation will have been configured (note that `f
 > KeyError: 'properties'
 > ```
 >
-> You will have to find out what its new `id` is (to be placed in the `.de_fra.json` config file).
+> You will have to find out what the new `id` is (to be placed in the `.de_fra.json` config file).
 >
 > The API call is described here: [https://api.ionos.com/docs/cloud/v6/#tag/Images/operation/imagesGet](https://api.ionos.com/docs/cloud/v6/#tag/Images/operation/imagesGet)
 
