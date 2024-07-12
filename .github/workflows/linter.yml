@@ -23,22 +23,22 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
       # Run linter against code base
       - name: Lint Code Base
-        uses: super-linter/super-linter/slim@v5.2.1
+        uses: super-linter/super-linter/slim@v6.6.0
         env:
           MULTI_STATUS: false
           VALIDATE_ALL_CODEBASE: false
-          VALIDATE_DOCKERFILE: false
           VALIDATE_PYTHON_PYLINT: false
           VALIDATE_PYTHON_MYPY: false
           VALIDATE_JSCPD: false
           VALIDATE_CPP: false
           VALIDATE_NATURAL_LANGUAGE: false
+          VALIDATE_CHECKOV: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
