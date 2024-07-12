@@ -1,0 +1,58 @@
+{
+    "server": {
+        "properties": {
+            "name": "bar",
+            "availabilityZone": "AUTO",
+            "cpuFamily": "INTEL_SKYLAKE",
+            "type": "CUBE",
+            "templateUuid": "{{ cubes-m-template-id }}"
+        },
+        "entities": {
+            "volumes" : {
+                "items": [
+                    {
+                        "properties": {
+                            "name": "bar-boot",
+                            "type": "DAS",
+                            "bus": "VIRTIO",
+                            "image": "{{ ubuntu-20-04-lts-server-cloud-init-image-id }}",
+                            "imagePassword": null
+                        }
+                    }
+                ]
+            },
+            "nics": {
+                "items": [
+                    {
+                        "properties": {
+                            "name": "bar-wan",
+                            "ips": null,
+                            "dhcp": true,
+                            "lan": 1,
+                            "firewallActive": true,
+                            "firewallType": "INGRESS"
+                        },
+                        "firewallrules": [
+                            {
+                                "properties" : {
+                                    "name" : "from-IP-to-SSH",
+                                    "protocol" : "TCP",
+                                    "sourceMac" : null,
+                                    "sourceIp" : "{{ source-ip }}",
+                                    "targetIp" : null,
+                                    "icmpCode" : null,
+                                    "icmpType" : null,
+                                    "portRangeStart" : 22,
+                                    "portRangeEnd" : 22,
+                                    "type" : "INGRESS"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "volumes" : [],
+    "nics": []
+}
