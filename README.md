@@ -27,9 +27,9 @@ The YAML files (a.k.a. the `#cloud-configs`) will initialize both servers entire
 and unattended upgrades and log rotation will have been configured (note that `foo` and `bar` have different log rotation vacuum times, but do share the exact same configuration for unattended upgrades).
 
 > [!NOTE]
-> In case IONOS changed the Ubuntu image that we rely upon, you will likely see an error message similar to this one:
+> In case IONOS changed the Ubuntu image that we rely upon, you will likely see an error message similar to:
 >
-> ```
+> ```text
 > +++ Attaching volumes.<name>-boot to <name>.
 > ... Server BUSY...
 > Traceback (most recent call last):
