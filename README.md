@@ -85,6 +85,9 @@ using the `.de_fra.json` config file.
 
 ![foobar.png](datacenters/foobar/images/foobar.png)
 
+> [!IMPORTANT]
+> If `foo-boot` is not selected as the boot device, you can change that manually in the Data Center Designer (DCD).
+
 ### Delete a DATACENTER
 
 Run
