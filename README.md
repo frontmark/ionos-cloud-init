@@ -27,6 +27,21 @@ The YAML files (a.k.a. the `#cloud-configs`) will initialize both servers entire
 and unattended upgrades and log rotation will have been configured (note that `foo` and `bar` have different log rotation vacuum times, but do share the exact same configuration for unattended upgrades).
 
 > [!NOTE]
+> If you can't use Basic Authentication, you can generate an API token and place it in
+>
+> `datacenters/.auth_headers.json`:
+>
+> ```json
+> {
+>     "headers": {
+>         "X-Contract-Number": "<Contract Number>",
+>         "Authorization": "Bearer <Token>"
+>     }
+> }
+> ```
+>
+> `cloud-init.py` will then use the API token instead of asking for a username and password.
+>
 > If IONOS changed the Ubuntu image `id` defined in `.de_fra.json`, you will see an error message similar to:
 >
 > ```text
