@@ -27,8 +27,10 @@ The YAML files (a.k.a. the `#cloud-configs`) will initialize both servers entire
 and unattended upgrades and log rotation will have been configured (note that `foo` and `bar` have different log rotation vacuum times, but do share the exact same configuration for unattended upgrades).
 
 > [!NOTE]
-> If you can't use Basic Authentication, you can generate an API token and place it in `datacenters/.auth_headers.json`:
-> 
+> If you can't use Basic Authentication, you can generate an API token and place it in
+>
+> `datacenters/.auth_headers.json`:
+>
 > ```json
 > {
 >     "headers": {
