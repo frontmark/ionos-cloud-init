@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 requests = "==2.*"
+# dependency of requests, pinned due to memory leak in 3.4.6
+charset-normalizer = "==3.4.5"
 
 [requires]
-python_version = "3"
+python_version = "3.14"
